@@ -43,10 +43,10 @@ export const login = createAsyncThunk(
     } catch (error) {
       console.log(error.message);
       if (error.response.status === 400) {
-        Notify.failure('Invalid data');
+        Notify.failure('Заполните обязательные поля');
       }
       if (error.response.status === 500) {
-        Notify.failure('Oops! Something is wrong. Please, try one more time.');
+        Notify.failure('Упс! Что-то пошло не так, попробуйте еще раз');
       }
 
       return thunkAPI.rejectWithValue();
