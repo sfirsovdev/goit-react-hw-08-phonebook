@@ -22,10 +22,10 @@ export const register = createAsyncThunk(
     } catch (error) {
       console.log(error);
       if (error.response.status === 400) {
-        Notify.failure('Invalid data');
+        Notify.failure('Заполните обязательные поля');
       }
       if (error.response.status === 500) {
-        Notify.failure('Oops! Something is wrong. Please, try one more time.');
+        Notify.failure('Упс! Что-то пошло не так, попробуйте еще раз');
       }
 
       return thunkAPI.rejectWithValue();
@@ -81,10 +81,10 @@ export const refreshCurrentUser = createAsyncThunk(
     } catch (error) {
       console.log(error.message);
       if (error.response.status === 400) {
-        Notify.failure('Invalid data');
+        Notify.failure('Заполните обязательные поля');
       }
       if (error.response.status === 500) {
-        Notify.failure('Oops! Something is wrong. Please, try one more time.');
+        Notify.failure('Упс! Что-то пошло не так, попробуйте еще раз');
       }
       if (error.response.status === 401) {
         Notify.failure(error.response.statusText);
